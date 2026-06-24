@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanxIA - Sua Assistente Inteligente de Contabilidade</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
+</head>
+<body>
+    <!-- Background Gradient -->
+    <div class="gradient-bg"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="28" height="28" rx="6" fill="url(#gradient)"/>
+                        <path d="M14 7L9 11H12V17H16V11H19L14 7Z" fill="white"/>
+                        <path d="M8 19H20V21H8V19Z" fill="white"/>
+                        <defs>
+                            <linearGradient id="gradient" x1="0" y1="0" x2="28" y2="28">
+                                <stop offset="0%" stop-color="#0077ff"/>
+                                <stop offset="100%" stop-color="#2f00ff"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span class="logo-text">FinanxIA</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Recursos</a>
+                <a href="#how-it-works">Como Funciona</a>
+                <a href="#pricing">Planos</a>
+                <a href="/chat.html" class="btn-primary">Abrir Chat IA</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#0077ff" stroke="#000000" stroke-width="1.5" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                PREMIUM ATIVO
+            </div>
+            <h1 class="hero-title">
+                Contabilidade Inteligente<br/>
+                <span class="gradient-text">Potencializada por IA</span>
+            </h1>
+            <p class="hero-description">
+                Resolva todos os seus problemas contábeis com a ajuda da inteligência artificial mais avançada. 
+                Rápido, preciso e sempre disponível. Você está usando a versão Premium!
+            </p>
+            <div class="hero-actions">
+                <a href="/chat.html" class="btn-large btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 2C5.58 2 2 5.58 2 10C2 14.42 5.58 18 10 18H14V16H10C6.69 16 4 13.31 4 10C4 6.69 6.69 4 10 4C13.31 4 16 6.69 16 10V11.5C16 12.33 15.33 13 14.5 13C13.67 13 13 12.33 13 11.5V10C13 8.34 11.66 7 10 7C8.34 7 7 8.34 7 10C7 11.66 8.34 13 10 13C10.82 13 11.54 12.61 12 12.03C12.34 12.61 13.03 13 13.84 13L14 13C15.66 13 17 11.66 17 10V10C17 5.58 13.42 2 10 2ZM10 11C9.45 11 9 10.55 9 10C9 9.45 9.45 9 10 9C10.55 9 11 9.45 11 10C11 10.55 10.55 11 10 11Z" fill="currentColor"/>
+                    </svg>
+                    Abrir Chat IA Premium
+                </a>
+                <button class="btn-large btn-secondary" onclick="scrollToFeatures()">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 2L3 7V13C3 15.21 6.58 17 10 17C13.42 17 17 15.21 17 13V7L10 2ZM10 11C8.9 11 8 10.1 8 9C8 7.9 8.9 7 10 7C11.1 7 12 7.9 12 9C12 10.1 11.1 11 10 11Z" fill="currentColor"/>
+                    </svg>
+                    Conhecer Recursos
+                </button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 4px;">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#0077ff" stroke="#000000" stroke-width="1"/>
+                        </svg>
+                        Premium
+                    </div>
+                    <div class="stat-label">Ativo</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle;">
+                            <path d="M8 8C5.79 8 4 9.79 4 12C4 14.21 5.79 16 8 16C9.33 16 10.53 15.33 11.26 14.33C11.53 15.33 12.47 16 13.74 16C15.47 16 16.74 14.21 16.74 12C16.74 9.79 15.47 8 13.74 8C12.47 8 11.53 8.67 11.26 9.67C10.53 8.67 9.33 8 8 8Z" fill="#0077ff" stroke="#000000" stroke-width="1"/>
+                            <path d="M13.74 8C15.47 8 16.74 9.79 16.74 12C16.74 14.21 15.47 16 13.74 16C14.47 16 15.53 15.33 16.26 14.33C16.53 15.33 17.47 16 18.74 16C20.47 16 21.74 14.21 21.74 12C21.74 9.79 20.47 8 18.74 8C17.47 8 16.53 8.67 16.26 9.67C15.53 8.67 14.47 8 13.74 8Z" fill="#0077ff" stroke="#000000" stroke-width="1"/>
+                        </svg>
+                    </div>
+                    <div class="stat-label">Consultas Ilimitadas</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Suporte Prioritário</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="section-header">
+            <h2 class="section-title">Recursos Poderosos</h2>
+            <p class="section-description">Tudo que você precisa para gerenciar sua contabilidade</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2L2 7V13C2 19 6 22 12 22C18 22 22 19 22 13V7L12 2Z" stroke="#0077ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        <path d="M12 11C13.1046 11 14 10.1046 14 9C14 7.89543 13.1046 7 12 7C10.8954 7 10 7.89543 10 9C10 10.1046 10.8954 11 12 11Z" stroke="#0077ff" stroke-width="1.5" fill="none"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Consultas Instantâneas</h3>
+                <p class="feature-description">Obtenha respostas imediatas para todas as suas dúvidas contábeis</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="3" width="18" height="18" rx="2" stroke="#0077ff" stroke-width="1.5" fill="none"/>
+                        <path d="M9 11L12 14L22 4" stroke="#0077ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Análise de Documentos</h3>
+                <p class="feature-description">Envie documentos e receba análises detalhadas automaticamente</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                        <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="#0077ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Processamento Rápido</h3>
+                <p class="feature-description">IA de última geração para respostas em segundos</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="#0077ff" stroke-width="1.5" fill="none"/>
+                        <path d="M12 8V12L14 14" stroke="#0077ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="6" r="0.5" fill="#0077ff"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Conformidade Legal</h3>
+                <p class="feature-description">Sempre atualizado com as últimas normas e regulações</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="3" width="4" height="10" stroke="#0077ff" stroke-width="1.5" fill="none"/>
+                        <rect x="10" y="7" width="4" height="6" stroke="#0077ff" stroke-width="1.5" fill="none"/>
+                        <rect x="17" y="5" width="4" height="8" stroke="#0077ff" stroke-width="1.5" fill="none"/>
+                        <line x1="2" y1="15" x2="22" y2="15" stroke="#0077ff" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Relatórios Inteligentes</h3>
+                <p class="feature-description">Gere relatórios personalizados com insights acionáveis</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="7" r="4" stroke="#0077ff" stroke-width="1.5" fill="none"/>
+                        <path d="M5 21C5 17.134 8.134 14 12 14C15.866 14 19 17.134 19 21" stroke="#0077ff" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Suporte Personalizado</h3>
+                <p class="feature-description">Assistência adaptada ao seu perfil e necessidades</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="section-header">
+            <h2 class="section-title">Como Funciona</h2>
+            <p class="section-description">Simples, rápido e eficiente</p>
+        </div>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" fill="#0077ff" stroke="#000000" stroke-width="1.5"/>
+                        <circle cx="8" cy="9" r="1.5" fill="#000000"/>
+                        <circle cx="12" cy="9" r="1.5" fill="#000000"/>
+                        <circle cx="16" cy="9" r="1.5" fill="#000000"/>
+                    </svg>
+                </div>
+                <h3 class="step-title">Faça sua Pergunta</h3>
+                <p class="step-description">Digite sua dúvida ou envie documentos para análise</p>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="6" y="3" width="12" height="14" rx="2" fill="#0077ff" stroke="#000000" stroke-width="1.5"/>
+                        <circle cx="9" cy="7" r="1.5" fill="#000000"/>
+                        <circle cx="15" cy="7" r="1.5" fill="#000000"/>
+                        <path d="M9 11H15" stroke="#000000" stroke-width="1.5" stroke-linecap="round"/>
+                        <rect x="8" y="18" width="3" height="3" fill="#0077ff" stroke="#000000" stroke-width="1.5"/>
+                        <rect x="13" y="18" width="3" height="3" fill="#0077ff" stroke="#000000" stroke-width="1.5"/>
+                        <path d="M11 17V18M13 17V18" stroke="#000000" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <h3 class="step-title">IA Processa</h3>
+                <p class="step-description">Nossa inteligência artificial analisa e processa sua solicitação</p>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" fill="#0077ff" stroke="#000000" stroke-width="1.5"/>
+                        <path d="M8 12.5L10.5 15L16 9.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3 class="step-title">Receba a Solução</h3>
+                <p class="step-description">Obtenha respostas precisas e acionáveis instantaneamente</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="section-header">
+            <h2 class="section-title">Planos e Preços</h2>
+            <p class="section-description">Escolha o plano ideal para você</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3 class="pricing-title">Básico</h3>
+                    <div class="pricing-price">
+                        <span class="price-currency">R$</span>
+                        <span class="price-value">49</span>
+                        <span class="price-period">/mês</span>
+                    </div>
+                </div>
+                <ul class="pricing-features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#0077ff" stroke="#000000" stroke-width="1"/></svg>100 consultas/mês</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#0077ff" stroke="#000000" stroke-width="1"/></svg>Suporte por email</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#0077ff" stroke="#000000" stroke-width="1"/></svg>Acesso web</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#0077ff" stroke="#000000" stroke-width="1"/></svg>Relatórios básicos</li>
+                </ul>
+                <a href="/chat.html" class="pricing-btn">Começar Agora</a>
+            </div>
+            <div class="pricing-card featured">
+                <div class="featured-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 6px;">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#0077ff" stroke="#000000" stroke-width="1.5" stroke-linejoin="round"/>
+                        <circle cx="12" cy="12" r="2" fill="#2f00ff"/>
+                    </svg>
+                    Você está aqui - Premium Ativo
+                </div>
+                <div class="pricing-header">
+                    <h3 class="pricing-title">Profissional</h3>
+                    <div class="pricing-price">
+                        <span class="price-currency">R$</span>
+                        <span class="price-value">149</span>
+                        <span class="price-period">/mês</span>
+                    </div>
+                </div>
+                <ul class="pricing-features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#0077ff" stroke="#000000" stroke-width="1"/></svg>Consultas ilimitadas</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#0077ff" stroke="#000000" stroke-width="1"/></svg>Suporte prioritário 24/7</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#0077ff" stroke="#000000" stroke-width="1"/></svg>API de integração</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#0077ff" stroke="#000000" stroke-width="1"/></svg>Relatórios avançados</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#0077ff" stroke="#000000" stroke-width="1"/></svg>Análise de documentos</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#0077ff" stroke="#000000" stroke-width="1"/></svg>Múltiplos usuários</li>
+                </ul>
+                <a href="/chat.html" class="pricing-btn primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 6px;">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#000000" stroke="#0077ff" stroke-width="1"/>
+                    </svg>
+                    Plano Atual - Acessar Chat
+                </a>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3 class="pricing-title">Empresarial</h3>
+                    <div class="pricing-price">
+                        <span class="price-currency">R$</span>
+                        <span class="price-value">499</span>
+                        <span class="price-period">/mês</span>
+                    </div>
+                </div>
+                <ul class="pricing-features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#0077ff" stroke="#000000" stroke-width="1"/></svg>Tudo do Profissional</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#0077ff" stroke="#000000" stroke-width="1"/></svg>Conta gerente dedicado</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#0077ff" stroke="#000000" stroke-width="1"/></svg>Customização completa</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#0077ff" stroke="#000000" stroke-width="1"/></svg>SLA garantido</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#0077ff" stroke="#000000" stroke-width="1"/></svg>Treinamento da equipe</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#0077ff" stroke="#000000" stroke-width="1"/></svg>Integração personalizada</li>
+                </ul>
+                <button class="pricing-btn">Falar com Vendas</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                            <rect width="28" height="28" rx="6" fill="url(#footerGrad)"/>
+                            <path d="M14 7L9 11H12V17H16V11H19L14 7Z" fill="white"/>
+                            <path d="M8 19H20V21H8V19Z" fill="white"/>
+                            <defs>
+                                <linearGradient id="footerGrad" x1="0" y1="0" x2="28" y2="28">
+                                    <stop offset="0%" stop-color="#0077ff"/>
+                                    <stop offset="100%" stop-color="#2f00ff"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <span class="logo-text">FinanxIA</span>
+                </div>
+                <p class="footer-description">
+                    Revolucionando a contabilidade com<br>inteligência artificial avançada.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Produto</h4>
+                <ul class="footer-links">
+                    <li><a href="#features">Recursos</a></li>
+                    <li><a href="#pricing">Preços</a></li>
+                    <li><a href="#">Documentação</a></li>
+                    <li><a href="#">API</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Empresa</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Carreiras</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Privacidade</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Segurança</a></li>
+                    <li><a href="#">Compliance</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 FinanxIA. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="#" class="social-link">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M20 3.924a8.223 8.223 0 01-2.357.646A4.11 4.11 0 0019.448 2.3a8.219 8.219 0 01-2.606.996A4.096 4.096 0 0013.847 2c-2.266 0-4.104 1.837-4.104 4.103 0 .322.036.635.106.935C6.44 6.89 3.416 5.267 1.392 2.77a4.095 4.095 0 00-.555 2.062c0 1.423.724 2.679 1.825 3.415a4.09 4.09 0 01-1.859-.513v.052c0 1.988 1.414 3.647 3.292 4.023a4.108 4.108 0 01-1.853.07c.522 1.63 2.038 2.816 3.833 2.85A8.238 8.238 0 010 16.41 11.616 11.616 0 006.29 18c7.547 0 11.675-6.252 11.675-11.675 0-.178-.004-.355-.012-.531A8.353 8.353 0 0020 3.924z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M18.896 0H1.104C.494 0 0 .494 0 1.104v17.792C0 19.506.494 20 1.104 20h17.792c.61 0 1.104-.494 1.104-1.104V1.104C20 .494 19.506 0 18.896 0zM5.933 17.033H2.967V7.5h2.966v9.533zM4.45 6.2a1.717 1.717 0 110-3.433 1.717 1.717 0 010 3.433zm12.583 10.833h-2.966v-4.642c0-1.107-.02-2.53-1.542-2.53-1.542 0-1.779 1.204-1.779 2.45v4.722H7.78V7.5h2.846v1.304h.04c.396-.75 1.363-1.542 2.808-1.542 3.004 0 3.558 1.979 3.558 4.55v5.221z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+    <script>
+        function scrollToFeatures() {
+            document.getElementById('features').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    </script>
+</body>
+</html>

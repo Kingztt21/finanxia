@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat IA - FinanxIA Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="/chat-styles.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="/index.html" class="logo">
+                <div class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="28" height="28" rx="6" fill="url(#gradient)"/>
+                        <path d="M14 7L9 11H12V17H16V11H19L14 7Z" fill="#000"/>
+                        <path d="M8 19H20V21H8V19Z" fill="#000"/>
+                        <defs>
+                            <linearGradient id="gradient" x1="0" y1="0" x2="28" y2="28">
+                                <stop offset="0%" stop-color="#0077ff"/>
+                                <stop offset="100%" stop-color="#2f00ff"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span class="logo-text">FinanxIA</span>
+            </a>
+            <div class="premium-badge">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M8 1L10 6L15 6.5L11 10L12 15L8 12.5L4 15L5 10L1 6.5L6 6L8 1Z" fill="#0077ff"/>
+                </svg>
+                Premium
+            </div>
+        </div>
+        
+        <button class="new-chat-btn" onclick="newChat()">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            Nova Conversa
+        </button>
+        
+        <div class="chat-history">
+            <div class="history-section">
+                <div class="history-title">Hoje</div>
+                <div class="history-item active">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M2 3H14M2 8H14M2 13H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    Cálculo de impostos Simples
+                </div>
+            </div>
+        </div>
+        
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">U</div>
+                <div class="user-details">
+                    <div class="user-name">Usuário Premium</div>
+                    <div class="user-email">premium@finanxia.com</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    
+    <!-- Main Chat Area -->
+    <main class="chat-main">
+        <header class="chat-header">
+            <div class="header-left">
+                <button class="icon-btn mobile-menu-btn" onclick="toggleSidebar()">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M3 5H17M3 10H17M3 15H17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+                <h1 class="chat-title">FinanxIA Premium</h1>
+            </div>
+            <div class="header-right">
+                <span class="model-badge">Llama 3.3 70B</span>
+                <button class="icon-btn" onclick="clearChat()" title="Limpar conversa">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M8 4V2H12V4H16V6H4V4H8ZM6 8H14V18H6V8Z" fill="currentColor"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+        
+        <div class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+                <div class="welcome-screen">
+                    <div class="welcome-icon">
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="32" r="30" stroke="url(#welcomeGrad)" stroke-width="2"/>
+                            <path d="M32 16L24 24H28V36H36V24H40L32 16Z" fill="url(#welcomeGrad)"/>
+                            <path d="M22 40H42V44H22V40Z" fill="url(#welcomeGrad)"/>
+                            <defs>
+                                <linearGradient id="welcomeGrad" x1="0" y1="0" x2="64" y2="64">
+                                    <stop offset="0%" stop-color="#0077ff"/>
+                                    <stop offset="100%" stop-color="#2f00ff"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h2>Bem-vindo ao FinanxIA Premium</h2>
+                    <p>Sua assistente de contabilidade com IA está pronta para ajudar!</p>
+                    
+                    <div class="quick-suggestions">
+                        <button class="suggestion-card" onclick="sendQuickMessage('Crie um gráfico de impostos mensais para uma empresa do Simples Nacional')">
+                            <div class="suggestion-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="3" y="3" width="4" height="14" stroke="#0077ff" stroke-width="1.5" fill="none"/>
+                                    <rect x="10" y="7" width="4" height="10" stroke="#0077ff" stroke-width="1.5" fill="none"/>
+                                    <rect x="17" y="5" width="4" height="12" stroke="#0077ff" stroke-width="1.5" fill="none"/>
+                                    <line x1="2" y1="19" x2="22" y2="19" stroke="#0077ff" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <div class="suggestion-content">
+                                <div class="suggestion-title">Gerar Gráfico</div>
+                                <div class="suggestion-desc">Visualização de dados contábeis</div>
+                            </div>
+                        </button>
+                        
+                        <button class="suggestion-card" onclick="sendQuickMessage('Crie uma tabela com os principais prazos de declarações de 2026')">
+                            <div class="suggestion-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" stroke="#0077ff" stroke-width="1.5" fill="none"/>
+                                    <line x1="3" y1="9" x2="21" y2="9" stroke="#0077ff" stroke-width="1.5"/>
+                                    <line x1="9" y1="4" x2="9" y2="22" stroke="#0077ff" stroke-width="1.5"/>
+                                    <line x1="15" y1="4" x2="15" y2="22" stroke="#0077ff" stroke-width="1.5"/>
+                                </svg>
+                            </div>
+                            <div class="suggestion-content">
+                                <div class="suggestion-title">Prazos e Obrigações</div>
+                                <div class="suggestion-desc">Calendário tributário 2026</div>
+                            </div>
+                        </button>
+                        
+                        <button class="suggestion-card" onclick="sendQuickMessage('Análise comparativa entre Simples Nacional e Lucro Presumido')">
+                            <div class="suggestion-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 17L9 11L13 15L21 7" stroke="#0077ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M16 7H21V12" stroke="#0077ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="suggestion-content">
+                                <div class="suggestion-title">Análise Comparativa</div>
+                                <div class="suggestion-desc">Compare regimes tributários</div>
+                            </div>
+                        </button>
+                        
+                        <button class="suggestion-card" onclick="sendQuickMessage('Calcule o INSS e FGTS para um salário de R$ 5.000')">
+                            <div class="suggestion-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="9" stroke="#0077ff" stroke-width="1.5" fill="none"/>
+                                    <path d="M12 6V8M12 6C10.3431 6 9 7.34315 9 9C9 10.6569 10.3431 12 12 12C13.6569 12 15 13.3431 15 15C15 16.6569 13.6569 18 12 18M12 18V20M12 18C10.3431 18 9 16.6569 9 15" stroke="#0077ff" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <div class="suggestion-content">
+                                <div class="suggestion-title">Calcular Encargos</div>
+                                <div class="suggestion-desc">INSS, FGTS e outros encargos</div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input-area">
+                <form class="chat-input-form">
+                    <div class="input-wrapper">
+                        <button type="button" class="attach-btn" title="Anexar documento">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M14 3L3 14V17H6L17 6L14 3Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                        <input 
+                            type="text" 
+                            id="messageInput" 
+                            class="message-input" 
+                            placeholder="Pergunte qualquer coisa sobre contabilidade..."
+                            autocomplete="off"
+                        />
+                        <button type="button" class="send-btn" id="sendBtn" onclick="(function(e){ try { e.preventDefault(); } catch(err){}; try { sendMessage(e); } catch(err){} })(event)">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M2 10L18 2L10 18L8 11L2 10Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+                <div class="input-footer">
+                    FinanxIA pode cometer erros. Considere verificar informações importantes.
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="/script.js"></script>
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        }
+        
+        function newChat() {
+            clearChat();
+        }
+        
+        function clearChat() {
+            if (confirm('Deseja iniciar uma nova conversa?')) {
+                conversationHistory = [conversationHistory[0]];
+                document.getElementById('chatMessages').innerHTML = `
+                    <div class="welcome-screen">
+                        <div class="welcome-icon">
+                            <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="30" stroke="url(#welcomeGrad)" stroke-width="2"/>
+                                <path d="M32 16L24 24H28V36H36V24H40L32 16Z" fill="url(#welcomeGrad)"/>
+                                <path d="M22 40H42V44H22V40Z" fill="url(#welcomeGrad)"/>
+                                <defs>
+                                    <linearGradient id="welcomeGrad" x1="0" y1="0" x2="64" y2="64">
+                                        <stop offset="0%" stop-color="#0077ff"/>
+                                        <stop offset="100%" stop-color="#2f00ff"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h2>Bem-vindo ao FinanxIA Premium</h2>
+                        <p>Sua assistente de contabilidade com IA está pronta para ajudar!</p>
+                        
+                        <div class="quick-suggestions">
+                            <button class="suggestion-card" onclick="sendQuickMessage('Crie um gráfico de impostos mensais para uma empresa do Simples Nacional')">
+                                <div class="suggestion-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="3" y="3" width="4" height="14" stroke="#0077ff" stroke-width="1.5" fill="none"/>
+                                        <rect x="10" y="7" width="4" height="10" stroke="#0077ff" stroke-width="1.5" fill="none"/>
+                                        <rect x="17" y="5" width="4" height="12" stroke="#0077ff" stroke-width="1.5" fill="none"/>
+                                        <line x1="2" y1="19" x2="22" y2="19" stroke="#0077ff" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div class="suggestion-content">
+                                    <div class="suggestion-title">Gerar Gráfico</div>
+                                    <div class="suggestion-desc">Visualização de dados contábeis</div>
+                                </div>
+                            </button>
+                            
+                            <button class="suggestion-card" onclick="sendQuickMessage('Crie uma tabela com os principais prazos de declarações de 2026')">
+                                <div class="suggestion-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" stroke="#0077ff" stroke-width="1.5" fill="none"/>
+                                        <line x1="3" y1="9" x2="21" y2="9" stroke="#0077ff" stroke-width="1.5"/>
+                                        <line x1="9" y1="4" x2="9" y2="22" stroke="#0077ff" stroke-width="1.5"/>
+                                        <line x1="15" y1="4" x2="15" y2="22" stroke="#0077ff" stroke-width="1.5"/>
+                                    </svg>
+                                </div>
+                                <div class="suggestion-content">
+                                    <div class="suggestion-title">Prazos e Obrigações</div>
+                                    <div class="suggestion-desc">Calendário tributário 2026</div>
+                                </div>
+                            </button>
+                            
+                            <button class="suggestion-card" onclick="sendQuickMessage('Análise comparativa entre Simples Nacional e Lucro Presumido')">
+                                <div class="suggestion-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 17L9 11L13 15L21 7" stroke="#0077ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M16 7H21V12" stroke="#0077ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="suggestion-content">
+                                    <div class="suggestion-title">Análise Comparativa</div>
+                                    <div class="suggestion-desc">Compare regimes tributários</div>
+                                </div>
+                            </button>
+                            
+                            <button class="suggestion-card" onclick="sendQuickMessage('Calcule o INSS e FGTS para um salário de R$ 5.000')">
+                                <div class="suggestion-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="12" r="9" stroke="#0077ff" stroke-width="1.5" fill="none"/>
+                                        <path d="M12 6V8M12 6C10.3431 6 9 7.34315 9 9C9 10.6569 10.3431 12 12 12C13.6569 12 15 13.3431 15 15C15 16.6569 13.6569 18 12 18M12 18V20M12 18C10.3431 18 9 16.6569 9 15" stroke="#0077ff" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div class="suggestion-content">
+                                    <div class="suggestion-title">Calcular Encargos</div>
+                                    <div class="suggestion-desc">INSS, FGTS e outros encargos</div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
